@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+{% for image in images %}
+<a class="fancybox" rel="group" href="{{ image.image.url }}"><img border="0" alt=""
+        src="{{ image.thumbnail.url }}" /></a>
+{% endfor %}
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".fancybox").fancybox({
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+</script>
+
+{% endblock %}

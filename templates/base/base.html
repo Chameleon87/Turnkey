@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<title>TurnKey Construction Company</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://codeorigin.jquery.com/jquery-2.0.3.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" style="text/css" href="{% static 'css/main.css' %}">
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'js/source/jquery.fancybox.css' %}" />
+<script type="text/javascript" src="{% static 'js/source/jquery.fancybox.pack.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/source/helpers/jquery.fancybox-buttons.js' %}"></script>
+</head>
+
+
+<body>
+<div id="content" class="container">
+    <nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'gallery.views.index' %}" class="first">
+            <img src="{% static 'images/turnkey.jpg' %}" height="100%" width="50px"></a>
+   </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'gallery.views.customhomes' %}">Custom Homes</a></li>
+            <li><a href="{% url 'gallery.views.roofing' %}">Roofing</a></li>
+            <li><a href="{% url 'gallery.views.newconstruction' %}">New Construction</a></li>
+            <li><a href="{% url 'gallery.views.remodeling' %}">Remodeling</a></li>
+            <li><a href="{% url 'gallery.views.concrete' %}">Concrete</a></li>
+            <li><a href="{% url 'gallery.views.snowremoval' %}">Snow Removal</a></li>
+            <li><a href="{% url 'gallery.views.gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'gallery.views.contact' %}">Contact Us</a></li>        
+        </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+        <!-- /content-->
+    {% block content %}
+      
+      
+      
+    {% endblock %}
+<!-- footer --><hr>
+<div id="footer" align="center">
+<a href="contact.html"><b>Contact Us</b></a><br>
+TurnKey Construction Company &copy; Copyright 2015
+</div>
+</body>
+</html>

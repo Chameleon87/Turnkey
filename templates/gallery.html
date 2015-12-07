@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+       
+{% for album in albums.object_list %}
+<div class="row">
+    <div class="col-md-2">
+       <span class="title">{{ album.title }} ({{ album.image_set.count }} images)</span>
+    </div>
+   
+    <div class="col-md-2">
+       <a href="{% url 'gallery.views.album' album.pk %}"><img border="0" alt=""
+    src="{{ album.cover_photo.thumbnail.url }}" /></a>
+    </div>
+</div>
+     
+{% endfor %} 
+            
+        <!-- Next/Prev page links  -->
+{% if albums.object_list and albums.paginator.num_pages > 1 %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if albums.has_previous %}
+                <a href= "?page={{ albums.previous_page_number }}">previous &lt;&lt; </a>
+            {% endif %}
+
+            <span class="current">
+                &nbsp;Page {{ albums.number }} of {{ albums.paginator.num_pages }}
+            </span>
+
+            {% if albums.has_next %}
+                <a href="?page={{ albums.next_page_number }}"> &gt;&gt; next</a>
+            {% endif %}
+        </span>
+    </div>
+    
+    
+{% endif %}
+
+{% endblock %}

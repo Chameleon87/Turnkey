@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="col-md-4" align="center"><img src="{% static 'images/contactus.jpg' %}" width="200" height="153" hspace="40"/>
+    <dt><strong>TurnKey Construction Company</strong><br>
+    4515 Parkside Dr. Suite #103
+Amarillo, TX 79109</dt>
+    <h3 align="left">Office:(806) 433-1252</h3><h3 align="left">Cell:(806) 331-8522 (TKCC)</h3>
+    Email for more information or a qoute, today!<br>
+    <p><a href="https://www.facebook.com/turnkeycc">
+    <img src="{% static 'images/fb.jpg' %}" width="70" height="70"></a>
+</div>
+
+{% block content-wrap %}
+<div id="contact_wrap">
+<div id="contact" class="clearfix">
+  <div class="col-md-8">
+   <form action="{% url 'gallery.views.contact' %}" method="post">
+       {% csrf_token %}
+   {% bootstrap_form form %}
+       {% buttons %} <button type="submit" class="btn btn-default">Submit</button> {% endbuttons %}
+   </form>
+</div>
+</div>
+</div>
+    {% endblock %}
+
+
+{% endblock %}

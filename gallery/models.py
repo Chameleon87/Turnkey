@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib import admin
 from imagekit.models.fields import ImageSpecField
 from imagekit.processors import ResizeToFill
 from PIL import Image as PImage

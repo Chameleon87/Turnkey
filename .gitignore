@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+media
+Turnkey
 *.sqlite3
 *.pyc
 local_settings.py

@@ -21,11 +21,12 @@ BASE_DIR = os.path.dirname(__file__)
 SECRET_KEY = 'changeme'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['104.236.229.11']
+ALLOWED_HOSTS = ['austinsremodelingcompany.com', 'www.austinsremodelingcompany.com']
 
 
 # Application definition
@@ -88,7 +89,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = '/static/'
+STATIC_ROOT = '/static'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (

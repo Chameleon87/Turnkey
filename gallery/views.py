@@ -81,10 +81,10 @@ def contact(request):
         if form.is_valid():
             try:
                 send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
-                          form.cleaned_data['email'], ['jess@turnkeycc.com'])
+                          form.cleaned_data['email'], ['jessehodge1987@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return HttpResponseRedirect('thankyou.html')
+            return HttpResponseRedirect('thankyou')
         else:
             return render_to_response('contact.html', {'form': form})
     else:

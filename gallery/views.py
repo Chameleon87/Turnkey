@@ -1,39 +1,37 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext, Context
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from django import forms
 from django.forms.widgets import *
 from django.core.mail import send_mail, BadHeaderError
 from django.core.context_processors import csrf
-from django.shortcuts import get_object_or_404, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.forms import ModelForm
 from settings import MEDIA_URL
-from gallery.models import *
+from gallery.models import Album, Tag, Image
 from gallery.forms import ContactForm
     
 
 def index(request):
-    return render_to_response('index.html', RequestContext(request))
+    return render(request, 'index.html')
 
 def customhomes(request):
-    return render_to_response('customhomes.html', RequestContext(request))
+    return render(request, 'customhomes.html')
 
 def roofing(request):
-    return render_to_response('roofing.html', RequestContext(request))
+    return render(request, 'roofing.html')
 
 def newconstruction(request):
-    return render_to_response('newconstruction.html', RequestContext(request))
+    return render(request, 'newconstruction.html')
 
 def remodeling(request):
-    return render_to_response('remodeling.html', RequestContext(request))
+    return render(request, 'remodeling.html')
 
 def concrete(request):
-    return render_to_response('concrete.html', RequestContext(request))
+    return render(request, 'concrete.html')
 
 def snowremoval(request):
-    return render_to_response('snowremoval.html', RequestContext(request))
+    return render(request, 'snowremoval.html')
 
 def gallery(request):
     albums = Album.objects.all()
@@ -71,7 +69,7 @@ def album(request, pk):
     except (InvalidPage, EmptyPage):
         images = paginator.page(paginator.num_pages)
 
-    return render_to_response("album.html", dict(album=album, images=images, user=request.user,
+    return render("album.html", dict(album=album, images=images, user=request.user,
         media_url=MEDIA_URL))
 
 def contact(request):
@@ -86,12 +84,11 @@ def contact(request):
                      form.cleaned_data['email'], ['jess@turnkeycc.com'])
         except BadHeaderError:
            return HttpResponse('Invalid header found.')
-        return HttpResponseRedirect('thankyou.html')
+        return redirect('thankyou.html')
     else:
         return render_to_response('contact.html', {'form': form})
 
 def thankyou(request):
-    return render_to_response('thankyou.html', RequestContext(request))
+    return render(request, 'thankyou.html')
 
-def thankyou(request):
-		return render_to_response('thankyou.html')
+

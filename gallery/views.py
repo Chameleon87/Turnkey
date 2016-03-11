@@ -77,19 +77,18 @@ def album(request, pk):
 def contact(request):
     if request.POST:
         form = ContactForm(request.POST)
-
-        if form.is_valid():
-            try:
-                send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
-                          form.cleaned_data['email'], ['jess@turnkeycc.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return HttpResponseRedirect('thankyou.html')
-        else:
-            return render_to_response('contact.html', {'form': form})
     else:
-        return render_to_response('contact.html', {'form': ContactForm()},
-            RequestContext(request))
+        form = ContactForm()
+			
+    if form.is_valid():
+        try:
+            send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
+                     form.cleaned_data['email'], ['jess@turnkeycc.com'])
+        except BadHeaderError:
+           return HttpResponse('Invalid header found.')
+        return HttpResponseRedirect('thankyou.html')
+    else:
+        return render_to_response('contact.html', {'form': form})
 
 def thankyou(request):
     return render_to_response('thankyou.html', RequestContext(request))

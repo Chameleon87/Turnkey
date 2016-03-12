@@ -18,7 +18,6 @@ urlpatterns = patterns('',
     url(r'^contact$', contact),
     url(r'^thankyou$', thankyou),
     url(r'^admin/', include(admin.site.urls)),
-    
 )
 
 if settings.DEBUG:

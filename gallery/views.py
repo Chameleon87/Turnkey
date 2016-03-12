@@ -10,7 +10,6 @@ from django.forms import ModelForm
 from settings import MEDIA_URL
 from gallery.models import Album, Tag, Image
 from gallery.forms import ContactForm
-    
 
 def index(request):
     return render(request, 'index.html')
@@ -50,7 +49,7 @@ def gallery(request):
     for album in albums.object_list:
         album.images = album.image_set.all()[:4]
 
-    return render_to_response("gallery.html", dict(albums=albums, user=request.user,
+    return render(request, "gallery.html", dict(albums=albums, user=request.user,
         media_url=MEDIA_URL))
 
 def album(request, pk):
@@ -77,7 +76,7 @@ def contact(request):
         form = ContactForm(request.POST)
     else:
         form = ContactForm()
-			
+
     if form.is_valid():
         try:
             send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
@@ -86,9 +85,7 @@ def contact(request):
            return HttpResponse('Invalid header found.')
         return redirect('thankyou.html')
     else:
-        return render_to_response('contact.html', {'form': form})
+        return render(request, 'contact.html', {'form': form})
 
 def thankyou(request):
     return render(request, 'thankyou.html')
-
-

@@ -1,21 +1,22 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from gallery.views import index, customhomes, newconstruction, roofing, remodeling, concrete, snowremoval, gallery, album, contact, thankyou
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'gallery.views.index'),
-    url(r'^customhomes$', 'gallery.views.customhomes'),
-    url(r'^newconstruction$', 'gallery.views.newconstruction'),
-    url(r'^roofing$', 'gallery.views.roofing'),
-    url(r'^remodeling$', 'gallery.views.remodeling'),
-    url(r'^concrete$', 'gallery.views.concrete'),
-    url(r'^snowremoval$', 'gallery.views.snowremoval'),
-    url(r'^gallery$', 'gallery.views.gallery'),
-    url(r'^gallery/(?P<pk>\d)$', 'gallery.views.album'),
-    url(r'^contact$', 'gallery.views.contact'),
-    url(r'^thankyou$', 'gallery.views.thankyou'),
+    url(r'^$', index),
+    url(r'^customhomes$', customhomes),
+    url(r'^newconstruction$', newconstruction),
+    url(r'^roofing$', roofing),
+    url(r'^remodeling$', remodeling),
+    url(r'^concrete$', concrete),
+    url(r'^snowremoval$', snowremoval),
+    url(r'^gallery$', gallery),
+    url(r'^gallery/(?P<pk>\d)$', album),
+    url(r'^contact$', contact),
+    url(r'^thankyou$', thankyou),
     url(r'^admin/', include(admin.site.urls)),
     
 )

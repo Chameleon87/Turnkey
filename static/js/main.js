@@ -1,5 +1,3 @@
-<script>
-  $(function() {
-      $(".rslides").responsiveSlides();
-        });
-        </script>
+$(document).ready( function () {
+
+})

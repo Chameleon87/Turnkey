@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" style="text/css" href="{% static 'css/main.css' %}">
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -21,7 +22,6 @@
 
 </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="responsiveslides.min.js"></script>
 <!-- Add fancyBox -->
 <link rel="stylesheet" type="text/css" media="screen" href="{% static 'js/source/jquery.fancybox.css' %}" />
 <script type="text/javascript" src="{% static 'js/source/jquery.fancybox.pack.js' %}"></script>
@@ -54,16 +54,17 @@
             <li><a href="{% url 'gallery.views.concrete' %}">Concrete</a></li>
             <li><a href="{% url 'gallery.views.snowremoval' %}">Snow Removal</a></li>
             <li><a href="{% url 'gallery.views.gallery' %}">Gallery</a></li>
-            <li><a href="{% url 'gallery.views.contact' %}">Contact Us</a></li>        
+            <li><a href="{% url 'gallery.views.contact' %}">Contact Us</a></li>
         </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
-<h4>Turnkey Construction Company, LLC.</h4>
+<center><h4>Turnkey Construction Company, LLC.</h4>
+<p>THE LEADER OF CUSTOM HOME BUILDING IN AMARILLO, TX</p></center>
         <!-- /content-->
     {% block content %}
-      
-      
-      
+
+
+
     {% endblock %}
 <!-- footer --><hr>
 <div id="footer" align="center">

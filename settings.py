@@ -12,15 +12,28 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(__file__)
 
+<<<<<<< HEAD
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
+=======
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+>>>>>>> c927922d6c6dbe8c160c78c7641f64f5db3711e3
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['austinsremodelingcompany.com', 'www.austinsremodelingcompany.com']
+=======
+# ALLOWED_HOSTS = []
+>>>>>>> c927922d6c6dbe8c160c78c7641f64f5db3711e3
 
 # Application definition
 

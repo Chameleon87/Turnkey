@@ -1,16 +1,42 @@
 {% extends 'base/base.html' %}
 {% load staticfiles %}
 {% block content %}
-<div class="row">
-<div class="col-xs-6">
-       <img src="{% static 'images/turnkey.jpg' %}" height="300px" width="100%"></a><hr>
-    <p>THE LEADER OF CUSTOM HOME BUILDING IN AMARILLO, TX</p>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 2000 );
+});
+</script>
+<div class="col-lg-6 col-xs-hidden">
+  <div id="slideshow" class="col-lg-12">
+      <img src="{% static 'images/house2outside2.jpg' %}" alt="" class="active" />
+      <img src="{% static 'images/house1inside6.jpg' %}" alt="" />
+      <img src="{% static 'images/house1inside4.jpg' %}" alt="" />
+  </div>
+       <hr>
+       <br>
     <p>After a few years of business, Turn Key Construction Company, LLC is rapidly becoming Amarillo Texas’ home for homes. We specialize in custom home builds and remodels and cater to people in the Amarillo, TX area who desire luxurious homes that stand out above all the rest. Our craftsmanship was recently featured on HGTV, but you don’t need to tune in to see what we can do for your home. See it for yourself! We are licensed, bonded and insured members of the National Association of Home Builders and the Texas Panhandle Builders Association, so our quality service is guaranteed. Call us today to discuss your new home.</p>
     <br>
 
     <p>Our new construction and renovation services are making Amarillo, TX, a beautiful place to live. Call us today to discuss any of our services for your new or existing home.</p>
 </div>
-<div class="col-xs-6">
+<div class="col-lg-6">
 <img src="{% static 'images/Houseoct1.jpg' %}" width="100%" height="50%"><hr>
 <h4>Custom Home Services for Homeowners in the Amarillo, TX Area</h4>
     <p>CALL TURN KEY CONSTRUCTION FOR QUALITY HOME SERVICES FROM THE FOUNDATION TO THE ROOF</p>
@@ -26,4 +52,5 @@
     </ul>
 </div>
 </div>
+
 {% endblock %}

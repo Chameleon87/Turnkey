@@ -35,7 +35,6 @@ INSTALLED_APPS = (
     'gallery',
     'mptt',
     'imagekit',
-    'gunicorn',
 )
 
 MIDDLEWARE_CLASSES = (

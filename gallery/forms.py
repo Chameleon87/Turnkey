@@ -16,3 +16,4 @@ class AlbumForm(forms.ModelForm):
 
     class Meta:
         model = Album
+        exclude = ['']

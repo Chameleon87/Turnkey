@@ -25,6 +25,28 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{% static 'js/source/jquery.fancybox.css' %}" />
 <script type="text/javascript" src="{% static 'js/source/jquery.fancybox.pack.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/source/helpers/jquery.fancybox-buttons.js' %}"></script>
+<script>
+function slideSwitch() {
+    var $active = $('#slideshow IMG.active');
+
+    if ( $active.length == 0 ) $active = $('#slideshow IMG:last');
+
+    var $next =  $active.next().length ? $active.next()
+        : $('#slideshow IMG:first');
+
+    $active.addClass('last-active');
+
+    $next.css({opacity: 0.0})
+        .addClass('active')
+        .animate({opacity: 1.0}, 1000, function() {
+            $active.removeClass('active last-active');
+        });
+}
+
+$(function() {
+    setInterval( "slideSwitch()", 2000 );
+});
+</script>
 </head>
 
 

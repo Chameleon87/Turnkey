@@ -4,8 +4,7 @@ from django.contrib import admin
 from gallery.views import index, aboutus, customhomes, newconstruction, roofing, remodeling, concrete, snowremoval, gallery, album, contact, thankyou
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
+urlpatterns = [
     url(r'^$', index),
     url(r'^aboutus$', aboutus),
     url(r'^customhomes$', customhomes),
@@ -19,10 +18,10 @@ urlpatterns = patterns('',
     url(r'^contact$', contact),
     url(r'^thankyou$', thankyou),
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)
     urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-        'document_root': settings.MEDIA_ROOT}))
+                            (r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+                                'document_root': settings.MEDIA_ROOT}))

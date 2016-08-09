@@ -1,10 +1,16 @@
 from django import forms
 from .models import Album, Image
 
+WORK_CHOICES = (
+        ('Commercial', 'Commercial'),
+        ('Residential', 'Residential'),
+)
+
+
 class ContactForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField()
-    type_of_work = forms.ChoiceField(choices = (('Commercial', 'Commercial'), ('Residential', 'Residential')))
+    type_of_work = forms.ChoiceField(choices=WORK_CHOICES)
     subject = forms.CharField()
     message = forms.CharField(widget=forms.Textarea)
 

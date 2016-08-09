@@ -14,6 +14,9 @@ from gallery.forms import ContactForm
 def index(request):
     return render(request, 'index.html')
 
+def aboutus(request):
+    return render(request, 'aboutus.html')
+
 def customhomes(request):
     return render(request, 'customhomes.html')
 
@@ -79,7 +82,7 @@ def contact(request):
 
     if form.is_valid():
         try:
-            send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
+            send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'],
                      form.cleaned_data['email'], ['jess@turnkeycc.com'])
         except BadHeaderError:
            return HttpResponse('Invalid header found.')

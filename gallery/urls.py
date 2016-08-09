@@ -1,12 +1,13 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from gallery.views import index, customhomes, newconstruction, roofing, remodeling, concrete, snowremoval, gallery, album, contact, thankyou
+from gallery.views import index, aboutus, customhomes, newconstruction, roofing, remodeling, concrete, snowremoval, gallery, album, contact, thankyou
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', index),
+    url(r'^aboutus$', aboutus),
     url(r'^customhomes$', customhomes),
     url(r'^newconstruction$', newconstruction),
     url(r'^roofing$', roofing),

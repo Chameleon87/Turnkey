@@ -7,6 +7,7 @@ from settings import MEDIA_ROOT
 from string import join
 import os
 
+
 class Album(models.Model):
     title = models.CharField(max_length=60)
     public = models.BooleanField(default=True)
@@ -14,6 +15,7 @@ class Album(models.Model):
 
     def __unicode__(self):
         return self.title
+
     def images(self):
         lst = [x.image.name for x in self.image_set.all()]
         lst = ["{{ media_url }}" % (x, x.split('/')[-1]) for x in lst]
@@ -21,10 +23,13 @@ class Album(models.Model):
 
     images.allow_tags = True
 
+
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
+
     def __unicode__(self):
         return self.tag
+
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
@@ -39,6 +44,7 @@ class Image(models.Model):
 
     def __unicode__(self):
         return self.image.name
+
     def save(self, *args, **kwargs):
         """Save image dimensions."""
         super(Image, self).save(*args, **kwargs)
@@ -49,9 +55,6 @@ class Image(models.Model):
     def size(self):
         """Image size."""
         return "%s x %s" % (self.width, self.height)
-
-    def __unicode__(self):
-        return self.image.name
 
     def tags_(self):
         lst = [x[1] for x in self.tags.values_list()]
